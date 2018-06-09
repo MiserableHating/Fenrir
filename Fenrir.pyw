@@ -50,13 +50,13 @@ canvas.pack()
 
 
 string = StringVar()
-string.set("Le code bitcoin")
+string.set("Clé de décryptage")
 entree = Entry(fenrir, textvariable=string, width=30, bg="black", fg="white")
 entree.pack(side=LEFT)
 
 def callback1():
     showerror("Vous n'avez pas payé !", "Vous n'avez pas payé les bitcoins...")
-Button(fenrir, text='Payer pour récupérer vos données', command=callback1, bg='red', fg='white').pack(side=LEFT, padx=5, pady=5)
+Button(fenrir, text='Décrypter les données', command=callback1, bg='red', fg='white').pack(side=LEFT, padx=5, pady=5)
 def callback2():
     if askyesno('Supprimer les données', 'Êtes-vous sûr de vouloir supprimer vos données ?'):
         showwarning('Et bien adieu.', 'Tant pis...')
