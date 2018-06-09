@@ -8,7 +8,7 @@ import os
 import sys
 import time
 
-
+#os.system('cryptor.pyw')
 #time.sleep(3)
 
 fenrir = Tk()
@@ -25,16 +25,13 @@ fenrir.config(menu=menubar)
 
 Oups = Frame(fenrir, borderwidth=5, relief=GROOVE, bg="red")
 Oups.pack(side=TOP, padx=30, pady=30)
-infos = Frame(fenrir, width=1000, height=500, bg='#F0F0F0')
-infos.pack(side=TOP, padx=30, pady=30)
-infos2 = Frame(fenrir, bg='white')
-infos2.pack(side=TOP, padx=0, pady=5)
 
 
-Label(Oups, text="Woops ! Vos données ont été encryptées par Fenrir !", background="red", foreground="white", font="50").pack(padx=10, pady=10)
-Label(infos, text="Comment puis-je récupérer mes données ?", font="30", background="#F0F0F0").pack(padx=0, pady=0)
-Label(infos2, text="""Vous devez payer 0.1 bitcoin sur -
-Et puis débloquer vos données.""", background="#F0F0F0").pack(padx=0, pady=0)
+Label(Oups, text="Woops ! Vos données ont été encryptées par Fenrir !", background="red", foreground="black", font="50").pack(padx=10, pady=10)
+canvas = Canvas(fenrir, width=500, height=500, background='#F0F0F0')
+infos1 = canvas.create_text(170, 12, text="Comment récupérer mes données ?", font="Arial 16", fill="black")
+infos2 = canvas.create_text(183, 40, text="""Et bien c'est très simple, **Générique de Yu-Gi-Oh**""", font="Arial 12", fill="black")
+canvas.pack()
 
 def callback1():
     showerror("Vous n'avez pas payé !", "Vous n'avez pas payé les bitcoins...")
