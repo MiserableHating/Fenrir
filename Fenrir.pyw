@@ -8,28 +8,44 @@ import os
 import sys
 import time
 
+
+#time.sleep(3)
+
 fenrir = Tk()
 fenrir.title("Fenrir Ransomware")
 
+# Alertbar
+menubar = Menu(fenrir)
+menu1 = Menu(menubar, tearoff=0)
+menu1.add_command(label="Français")
+menu1.add_command(label="English")
+menubar.add_cascade(label="Langue/language", menu=menu1)
+fenrir.config(menu=menubar)
 
-Oups = Frame(fenrir, borderwidth=2, relief=GROOVE, bg="red")
+
+Oups = Frame(fenrir, borderwidth=5, relief=GROOVE, bg="red")
 Oups.pack(side=TOP, padx=30, pady=30)
-Label(Oups, text="Woops ! Vos données ont été encryptées par Fenrir !", background="red", foreground="white", font="50").pack(padx=10, pady=10)
-
-
-infos = Frame(fenrir, width=1000, height=500, bg='white')
+infos = Frame(fenrir, width=1000, height=500, bg='#F0F0F0')
 infos.pack(side=TOP, padx=30, pady=30)
-Label(infos, text="Comment puis-je récupérer mes données ?", font="30").pack(padx=10, pady=10)
-Button(fenrir, text ='Payer en bitcoin').pack(side=RIGHT, padx=5, pady=5)
+infos2 = Frame(fenrir, bg='white')
+infos2.pack(side=TOP, padx=0, pady=5)
 
-def callback():
+
+Label(Oups, text="Woops ! Vos données ont été encryptées par Fenrir !", background="red", foreground="white", font="50").pack(padx=10, pady=10)
+Label(infos, text="Comment puis-je récupérer mes données ?", font="30", background="#F0F0F0").pack(padx=0, pady=0)
+Label(infos2, text="""Vous devez payer 0.1 bitcoin sur -
+Et puis débloquer vos données.""", background="#F0F0F0").pack(padx=0, pady=0)
+
+def callback1():
+    showerror("Vous n'avez pas payé !", "Vous n'avez pas payé les bitcoins...")
+Button(fenrir, text='Payer en bitcoin', command=callback1).pack(side=LEFT, padx=5, pady=5)
+def callback2():
     if askyesno('Supprimer les données', 'Êtes-vous sûr de vouloir supprimer vos données ?'):
         showwarning('Et bien adieu.', 'Tant pis...')
         showwarning('££ùp,!;', 'Vos données vont être supprimées dans quelques secondes.')
     else:
         showerror("Ah...", "Vous avez peur ? C'est ça ?")
-
-Button(fenrir, text ='Supprimer vos données', command=callback).pack(side=RIGHT, padx=5, pady=5)
+Button(fenrir, text='Supprimer vos données', command=callback2).pack(side=RIGHT, padx=5, pady=5)
 
 # Mettre la fenêtre au millieu de l'écran
 fenrir.withdraw()
