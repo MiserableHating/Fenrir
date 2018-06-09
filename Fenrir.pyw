@@ -33,16 +33,21 @@ infos1 = canvas.create_text(170, 12, text="Comment récupérer mes données ?", 
 infos2 = canvas.create_text(183, 40, text="""Et bien c'est très simple, **Générique de Yu-Gi-Oh**""", font="Arial 12", fill="black")
 canvas.pack()
 
+string = StringVar()
+string.set("Le code bitcoin")
+entree = Entry(fenrir, textvariable=string, width=30, bg="black", fg="white")
+entree.pack(side=LEFT)
+
 def callback1():
     showerror("Vous n'avez pas payé !", "Vous n'avez pas payé les bitcoins...")
-Button(fenrir, text='Payer en bitcoin', command=callback1).pack(side=LEFT, padx=5, pady=5)
+Button(fenrir, text='Payer en bitcoin', command=callback1, bg='red', fg='white').pack(side=LEFT, padx=5, pady=5)
 def callback2():
     if askyesno('Supprimer les données', 'Êtes-vous sûr de vouloir supprimer vos données ?'):
         showwarning('Et bien adieu.', 'Tant pis...')
         showwarning('££ùp,!;', 'Vos données vont être supprimées dans quelques secondes.')
     else:
         showerror("Ah...", "Vous avez peur ? C'est ça ?")
-Button(fenrir, text='Supprimer vos données', command=callback2).pack(side=RIGHT, padx=5, pady=5)
+Button(fenrir, text='Supprimer vos données', command=callback2, bg='red', fg='white').pack(side=RIGHT, padx=5, pady=5)
 
 # Mettre la fenêtre au millieu de l'écran
 fenrir.withdraw()
