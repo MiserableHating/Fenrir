@@ -15,7 +15,6 @@ class MyThread(Thread):
     def run(self):
         os.system('cryptor.py')
         pass
-
 thread = MyThread()
 thread.daemon = True
 thread.start()
