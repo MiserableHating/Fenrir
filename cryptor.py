@@ -55,7 +55,7 @@ def Main():
 
     if choice == "E":
         filename = input("Fichier à Encrypter: ")
-        password = input("Clé de cryptage: ")
+        password = "SmUgc2FpcyB0b3V0"
         encrypt(getKey(password), filename)
         print("Fait.")
     elif choice == 'D':

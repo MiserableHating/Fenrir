@@ -4,6 +4,9 @@ Pour le moment, il n'y a rien de dangereux.
 Il ne crypte pas encore les données du disque dur mais juste un seul fichier par un seul fichier selon le choix de l'utilisateur.
 On ne peut pas encore payer. (Et dans la version finale, on aura pas à le faire)
 
+Voici la clé de décryptage actuelle : SmUgc2FpcyB0b3V0
+Plus tard, elle changera au hasard en fonction de l'ordinateur sur lequel Fenrir s'installe.
+
 # Installation :
 
 1. Avoir Python 3.
