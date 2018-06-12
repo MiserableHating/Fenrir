@@ -2,6 +2,9 @@ import os
 from Crypto.Cipher import AES
 from Crypto.Hash import SHA256
 from Crypto import Random
+import os, binascii
+
+decryptkey = binascii.b2a_hex(os.urandom(15))
 
 def encrypt(key, filename):
     chunksize = 64*1024
@@ -55,7 +58,7 @@ def Main():
 
     if choice == "E":
         filename = input("Fichier à Encrypter: ")
-        password = "SmUgc2FpcyB0b3V0"
+        password = decryptkey
         encrypt(getKey(password), filename)
         print("Fait.")
     elif choice == 'D':
@@ -63,8 +66,12 @@ def Main():
         password = input("Clé de décryptage: ")
         decrypt(getKey(password), filename)
         print("Fait.")
+    elif choice == 'P':
+        print(decryptkey)
+        Main()
     else:
-        print("Aucune option séléctionée, fermeture...")
+        print("Aucune option valide séléctionée.")
+        Main()
 
 if __name__ == '__main__':
     Main()
