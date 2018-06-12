@@ -1,9 +1,10 @@
+import os
 from Crypto.Cipher import AES
 from Crypto.Hash import SHA256
 from Crypto import Random
-import os, binascii
+import secrets
 
-decryptkey = binascii.b2a_hex(os.urandom(15))
+decryptkey = secrets.token_hex(15)
 
 def encrypt(key, filename):
     chunksize = 64*1024
