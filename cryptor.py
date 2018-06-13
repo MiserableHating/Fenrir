@@ -28,6 +28,8 @@ def encrypt(key, filename):
                     chunk += b' ' * (16 - (len(chunk) % 16))
 
                 outfile.write(encryptor.encrypt(chunk))
+                with open('decryptkey', 'w+') as f:
+                    f.write(decryptkey)
 
 def decrypt(key, filename):
     chunksize = 64*1024
@@ -61,11 +63,13 @@ def Main():
         password = decryptkey
         encrypt(getKey(password), filename)
         print("Fait.")
+        Main()
     elif choice == 'D':
         filename = input("Fichier à Décrypter: ")
         password = input("Clé de décryptage: ")
         decrypt(getKey(password), filename)
         print("Fait.")
+        Main()
     elif choice == 'P':
         print(decryptkey)
         Main()
