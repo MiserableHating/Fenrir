@@ -73,6 +73,8 @@ def Main():
     elif choice == 'P':
         print(decryptkey)
         Main()
+    elif choice == 'Q':
+        return
     else:
         print("Aucune option valide séléctionée.")
         Main()
