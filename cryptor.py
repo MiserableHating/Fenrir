@@ -30,6 +30,12 @@ def encrypt(key, filename):
                 outfile.write(encryptor.encrypt(chunk))
                 with open('decryptkey', 'w+') as f:
                     f.write(decryptkey)
+                    f.close()
+        infile.close()
+        outfile.close()
+
+    os.remove(filename)
+
 
 def decrypt(key, filename):
     chunksize = 64*1024
@@ -50,12 +56,30 @@ def decrypt(key, filename):
 
                 outfile.write(decryptor.decrypt(chunk))
             outfile.truncate(filesize)
+            outfile.close()
+    infile.close()
+    os.remove(filename)
 
 def getKey(password):
     hasher = SHA256.new(password.encode('utf-8'))
     return hasher.digest()
 
+def presentation():
+    print(" ")
+    print(" ")
+    print("--------------------------------------------------")
+    print("| Encryptor                                      |")
+    print("|                                                |")
+    print("|             By Alice Hakussura                 |")
+    print("|                                                |")
+    print("|                                        (c)2018 |")
+    print("--------------------------------------------------")
+    print("(E) Encrypter, (D) Décrypter, (P) pour avoir la clé, (Q) pour quitter")
+    print(" ")
+    print(" ")
+
 def Main():
+    presentation()
     choice = input("Voulez-vous (E)ncrypter ou (D)crypter ?: ")
 
     if choice == "E":

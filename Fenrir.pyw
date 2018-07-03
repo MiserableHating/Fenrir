@@ -24,6 +24,7 @@ def htmlfile():
 
 fenrir = Tk()
 fenrir.title("Fenrir Ransomware")
+fenrir.configure(background='white')
 
 def close_program():
     root.destroy()
